@@ -1,3 +1,4 @@
+
 cur_dir=$(cd $( dirname ${BASH_SOURCE[0]} ) && pwd )
 
 root_dir=$cur_dir
@@ -6,9 +7,9 @@ cd $root_dir
 
 redo=1
 
-data_root_dir=/media/asd/DATA/kangni_4  # Modify the path with your folder having Images and Labels directories.
+data_root_dir=/media/xiaosa/xiaosa/学习/深度学习/目标检测/一阶段网络/YOLO/MobileNet-YOLO-master/data/VOC0712/  # Modify the path with your folder having Images and Labels directories.
 
-dataset_name="person_new"  # This will be directory holding train and test LMDBs
+dataset_name="VOC_PERSON"  # This will be directory holding train and test LMDBs
 
 mapfile=labelmap_voc_person.prototxt  # Labelmap file for you dataset.
 
@@ -30,8 +31,8 @@ if [ $redo ]
 then
   extra_cmd="$extra_cmd --redo"
 fi
-for subset in    test
-do
-  python2 /home/asd/Project/MobileNet-YOLO-master2-yoloface/scripts/create_annoset.py --anno-type=$anno_type --shuffle  --label-type=$label_type --label-map-file=$mapfile --min-dim=$min_dim --max-dim=$max_dim --resize-width=$width --resize-height=$height --check-label $extra_cmd $data_root_dir $data_root_dir/$subset.txt $data_root_dir/$dataset_name/$db/$dataset_name"_"$subset"_"$db examples/$dataset_name 
+for subset in   test train
+ do
+  python2 /media/xiaosa/xiaosa/学习/深度学习/目标检测/一阶段网络/YOLO/MobileNet-YOLO-master/scripts/create_annoset.py --anno-type=$anno_type --shuffle  --label-type=$label_type --label-map-file=$mapfile --min-dim=$min_dim --max-dim=$max_dim --resize-width=$width --resize-height=$height --check-label $extra_cmd $data_root_dir $data_root_dir/$subset.txt $data_root_dir/$dataset_name/$db/$dataset_name"_"$subset"_"$db examples/$dataset_name 
 done
 

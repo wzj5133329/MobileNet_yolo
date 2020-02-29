@@ -1,11 +1,11 @@
 import xml.etree.cElementTree as ET
 import os
-path_root = ['/home/asd/Project/NCC_WZJ/YOLO/train/VOC/VOC2007/Annotations',
-             '/home/asd/Project/NCC_WZJ/YOLO/train/VOC/VOC2012/Annotations']
+path_root = ['../data/VOC2007/Annotations',
+             '../data/VOC2012/Annotations']
  
 CLASSES = [
-            "person"
-           ]
+            "person"         #选择需要的标签图片
+           ]c
 for anno_path in path_root:
     xml_list = os.listdir(anno_path)
     for axml in xml_list:
@@ -23,5 +23,5 @@ for anno_path in path_root:
                 root.remove(child)
                 projectperson+=1
         if(projectperson!=project):             #projectperson==project mean this xml not contain person
-            tree.write(os.path.join('/home/asd/Project/NCC_WZJ/YOLO/train/VOC/VOC0712/Annotations', axml))
+            tree.write(os.path.join('../data/VOC0712/xmls', axml))
 
