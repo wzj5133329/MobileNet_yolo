@@ -1,0 +1,2 @@
+训练mobile—yolo（或者ssd)报错，
+按此博客修改https://blog.csdn.net/house_s/article/details/82502938

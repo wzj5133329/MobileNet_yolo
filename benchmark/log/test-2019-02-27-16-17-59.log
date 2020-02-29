@@ -1,0 +1,1 @@
+../build/tools/caffe: symbol lookup error: ../build/tools/caffe: undefined symbol: _ZN5caffe3NetIfE21CopyTrainedLayersFromERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
